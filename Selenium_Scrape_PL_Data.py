@@ -9,6 +9,7 @@ import time
 import pandas as pd
 from selenium import webdriver
 from selenium.webdriver import Chrome
+from webdriver_manager.chrome import ChromeDriverManager
 
 # Define the goals dictionary
 
@@ -27,7 +28,7 @@ def PL_goals_grab(url, page):
     host = '192.168.12.12'  # Define the Host and Port
     port = 12345
 
-    driver = webdriver.Chrome('C:/Users/robert.enright/chromedriver')  # Define the Driver
+    driver = webdriver.Chrome(ChromeDriverManager().install())  # Define the Driver, while using ChromeDriverManager to ensure correct version is installed
     driver.get(url) # Get the PL Websitre
 
     time.sleep(2)  # Time to rest prior to removing cookie pop up
